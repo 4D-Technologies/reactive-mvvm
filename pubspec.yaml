@@ -1,0 +1,21 @@
+name: reactive_mvvm
+description: Reactive MVVM Library
+version: 0.0.1
+author:
+homepage: www.cadlearning.com
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  rxdart: ^0.27.1
+
+dev_dependencies:
+  effective_dart: ^1.3.2
+  flutter_test:
+    sdk: flutter
+
+flutter:
