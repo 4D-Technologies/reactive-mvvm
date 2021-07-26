@@ -1,8 +1,8 @@
 name: reactive_mvvm
 description: Reactive MVVM Library
 version: 1.0.0+1
-author: Concerti
 homepage: https://github.com/Concerti-IO/reactive-mvvm
+publish_to: https://pub.dev/reactive_mvvm
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
