@@ -1,41 +1,53 @@
 library mvvm;
 
-export './events/base_event.dart';
-export './events/base_field_event.dart';
-export './events/field_changed_event.dart';
-export './events/field_created_event.dart';
-export './events/field_posted_event.dart';
-export './events/form_changed_event.dart';
-export './events/view_changed_event.dart';
-export './events/list_changed_event.dart';
-export './events/object_changed_event.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'dart:ui';
+import 'dart:collection';
 
-export './models/widget_model.dart';
-export './models/field_model.dart';
-export './models/view_model.dart';
-export './models/form_model.dart';
-export './models/object_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:rxdart/rxdart.dart';
 
-export './validation/rules.dart';
+part './events/base_event.dart';
+part './events/base_field_event.dart';
+part './events/field_changed_event.dart';
+part './events/field_created_event.dart';
+part './events/field_posted_event.dart';
+part './events/form_changed_event.dart';
+part './events/view_changed_event.dart';
+part './events/list_changed_event.dart';
+part './events/object_changed_event.dart';
 
-export './observables/observable_list.dart';
-export './observables/observable.dart';
+part './models/widget_model.dart';
+part './models/field_model.dart';
+part './models/view_model.dart';
+part './models/form_model.dart';
+part './models/object_model.dart';
 
-export './builders/model_builder.dart';
-export './builders/page_model_builder.dart';
-export './builders/form_model_builder.dart';
-export './builders/list_builder.dart';
-export './builders/form_field_model_builder.dart';
-export './builders/widget_model_builder.dart';
-export './builders/object_model_builder.dart';
-export './builders/view_model_builder.dart';
+part './validation/rules.dart';
 
-export './controls/text_input_field.dart';
-export './controls/switch_input_field.dart';
-export './controls/dropdown_input_field.dart';
-export './controls/mvvm_form.dart';
-export './controls/number_input_field.dart';
-export './controls/checkbox_input_field.dart';
+part './observables/observable_list.dart';
+part './observables/observable.dart';
 
-export './interfaces/itranslator.dart';
-export './interfaces/ijsonable.dart';
+part './builders/model_builder.dart';
+part './builders/page_model_builder.dart';
+part './builders/form_model_builder.dart';
+part './builders/list_builder.dart';
+part './builders/form_field_model_builder.dart';
+part './builders/widget_model_builder.dart';
+part './builders/object_model_builder.dart';
+part './builders/view_model_builder.dart';
+part './builders/field_model_builder.dart';
+
+part './controls/text_input_field.dart';
+part './controls/switch_input_field.dart';
+part './controls/dropdown_input_field.dart';
+part './controls/mvvm_form.dart';
+part './controls/number_input_field.dart';
+part './controls/checkbox_input_field.dart';
+
+part './interfaces/itranslator.dart';
+part './interfaces/ijsonable.dart';

@@ -1,9 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/widgets.dart';
-
-import '../reactive_mvvm.dart';
-import 'field_model_builder.dart';
+part of mvvm;
 
 class FormFieldModelBuilder<TModel extends FormModel>
     extends ModelBuilder<TModel, BaseEvent> {

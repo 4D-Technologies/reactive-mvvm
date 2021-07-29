@@ -1,10 +1,4 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:rxdart/rxdart.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 enum ViewStatus {
   loading,

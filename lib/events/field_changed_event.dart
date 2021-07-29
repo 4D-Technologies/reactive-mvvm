@@ -1,4 +1,4 @@
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class FieldChangedEvent<TSource, TValue>
     extends BaseFieldEvent<TSource, TValue> {

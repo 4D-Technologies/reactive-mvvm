@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+part of mvvm;
 
 class MvvmForm extends Form {
   final Future<bool> Function() save;

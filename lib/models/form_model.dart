@@ -1,6 +1,4 @@
-import 'dart:async';
-import 'package:rxdart/rxdart.dart';
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 enum FormStatus { pure, valid, invalid }
 

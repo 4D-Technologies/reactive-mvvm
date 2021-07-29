@@ -1,9 +1,4 @@
-import 'dart:async';
-import 'dart:collection';
-
-import 'package:rxdart/rxdart.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class ObservableList<TElement> extends ListBase<TElement>
     with IObservable<ListChangedEvent<TElement>> {

@@ -1,7 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/widgets.dart';
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class ListBuilder<TModel> extends StatefulWidget {
   final ObservableList<TModel> list;

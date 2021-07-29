@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class SwitchInputField extends FormField<bool> {
   SwitchInputField(

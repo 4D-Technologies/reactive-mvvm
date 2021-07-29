@@ -1,4 +1,4 @@
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 enum ListChangeTypes { update, add, remove, create }
 

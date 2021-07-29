@@ -1,8 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/widgets.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 enum FieldModelRebuild { change, post }
 
@@ -31,10 +27,10 @@ class FieldModelBuilder<TSource, TDestination>
 
   @override
   State<StatefulWidget> createState() =>
-      FormFieldModelBuilderState<TSource, TDestination>();
+      FieldModelBuilderState<TSource, TDestination>();
 }
 
-class FormFieldModelBuilderState<TSource, TDestination>
+class FieldModelBuilderState<TSource, TDestination>
     extends State<FieldModelBuilder<TSource, TDestination>> {
   late BaseFieldEvent<dynamic, dynamic> oldEvent;
   late BaseFieldEvent<dynamic, dynamic> event;

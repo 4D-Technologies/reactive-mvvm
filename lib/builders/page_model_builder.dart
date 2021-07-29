@@ -1,7 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class PageModelBuilder<TModel extends ViewModel>
     extends ModelBuilder<TModel, BaseEvent> {

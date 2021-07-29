@@ -1,4 +1,4 @@
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class FormChangedEvent extends BaseEvent {
   final FormModel form;

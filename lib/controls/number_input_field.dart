@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:reactive_mvvm/controls/text_input_field.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class NumberInputField<TDestination> extends TextInputField<TDestination> {
   NumberInputField({

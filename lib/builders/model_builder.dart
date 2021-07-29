@@ -1,6 +1,4 @@
-import 'package:flutter/widgets.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 abstract class ModelBuilder<TModel extends IObservable<BaseEvent>,
     TEvent extends BaseEvent> extends StatefulWidget {

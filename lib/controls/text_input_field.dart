@@ -1,9 +1,4 @@
-import 'dart:ui';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class TextInputField<TDestination> extends TextFormField {
   final FieldModel<String, TDestination> field;

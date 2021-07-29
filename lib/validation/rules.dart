@@ -1,3 +1,5 @@
+part of mvvm;
+
 class ValidationErrors {
   static const REQUIRED = "required";
   static const MAX_LENGTH = "maxLength";

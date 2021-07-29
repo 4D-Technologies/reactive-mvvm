@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:rxdart/rxdart.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 abstract class WidgetModel<TEvent> with IObservable<TEvent> {
   @protected

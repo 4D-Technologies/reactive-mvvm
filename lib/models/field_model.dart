@@ -1,4 +1,4 @@
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class FieldModel<TSource, TValue>
     extends WidgetModel<BaseFieldEvent<TSource, TValue>> {

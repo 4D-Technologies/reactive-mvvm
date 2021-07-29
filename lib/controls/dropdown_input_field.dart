@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class DropDownInputField<TDestination>
     extends DropdownButtonFormField<TDestination> {

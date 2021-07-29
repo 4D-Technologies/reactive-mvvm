@@ -1,4 +1,4 @@
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 abstract class BaseFieldEvent<TSource, TValue> extends BaseEvent {
   final FieldModel<TSource, TValue> model;

@@ -1,4 +1,4 @@
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class ObjectChangedEvent<TObject> extends BaseEvent {
   final TObject? object;

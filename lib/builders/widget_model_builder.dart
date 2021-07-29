@@ -1,7 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/widgets.dart';
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class WidgetModelBuilder<TEvent extends BaseEvent,
     TModel extends IObservable<TEvent>> extends ModelBuilder<TModel, TEvent> {

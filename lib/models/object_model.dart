@@ -1,4 +1,4 @@
-import '../reactive_mvvm.dart';
+part of mvvm;
 
 class ObjectModel<TObject> extends WidgetModel<ObjectChangedEvent<TObject>> {
   TObject? _object;
