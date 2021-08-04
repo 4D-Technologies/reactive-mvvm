@@ -1,6 +1,6 @@
 name: reactive_mvvm
 description: Reactive MVVM Library
-version: 1.0.1
+version: 1.0.3
 homepage: https://github.com/Concerti-IO/reactive-mvvm
 publish_to: https://pub.dev/reactive_mvvm
 

@@ -50,4 +50,3 @@ part './controls/number_input_field.dart';
 part './controls/checkbox_input_field.dart';
 
 part './interfaces/itranslator.dart';
-part './interfaces/ijsonable.dart';

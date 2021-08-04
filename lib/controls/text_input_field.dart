@@ -1,7 +1,7 @@
 part of mvvm;
 
 class TextInputField<TDestination> extends TextFormField {
-  final FieldModel<String, TDestination> field;
+  final FieldModel<String?, TDestination> field;
   final FocusNode focusNode;
 
   TextInputField(
