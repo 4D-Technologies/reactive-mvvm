@@ -50,3 +50,13 @@ part './controls/number_input_field.dart';
 part './controls/checkbox_input_field.dart';
 
 part './interfaces/itranslator.dart';
+
+class ValidationErrorsLocalized {
+  static var REQUIRED = "Please enter a value";
+  static var MAX_LENGTH = "Please enter a value no longer than {{0}}";
+  static var MIN_LENGTH = "Please enter a value no shorter than {{0}}";
+  static var NOT_EMPTY = REQUIRED;
+  static var PASSWORD_COMPLEXITY =
+      "Please ensure that the password contains at least 1 upper case, 1 lower case, 1 number and one special character.";
+  static var EMAIL_ADDRESS = "Please enter a valid email address";
+}

@@ -1,14 +1,5 @@
 part of mvvm;
 
-class ValidationErrors {
-  static const REQUIRED = "required";
-  static const MAX_LENGTH = "maxLength";
-  static const MIN_LENGTH = "minLength";
-  static const NOT_EMPTY = "notEmpty";
-  static const PASSWORD_COMPLEXITY = "passwordComplexity";
-  static const EMAIL_ADDRESS = "emailAddress";
-}
-
 abstract class BaseRule<T> {
   const BaseRule();
   List<String>? validate(T value) => throw UnimplementedError();
@@ -17,7 +8,7 @@ abstract class BaseRule<T> {
 class Required extends BaseRule<dynamic> {
   @override
   List<String>? validate(dynamic value) {
-    if (value == null) return [ValidationErrors.REQUIRED];
+    if (value == null) return [ValidationErrorsLocalized.REQUIRED];
     return null;
   }
 }
@@ -32,7 +23,10 @@ class MaxLength extends BaseRule<String> {
       return null;
     }
 
-    return [ValidationErrors.MAX_LENGTH];
+    return [
+      ValidationErrorsLocalized.MAX_LENGTH
+          .replaceAll("{{0}}", maxLength.toString())
+    ];
   }
 
   @override
@@ -54,7 +48,10 @@ class MinLength extends BaseRule<String> {
   List<String>? validate(String? value) {
     if (value == null || value.length >= minLength) return null;
 
-    return [ValidationErrors.MIN_LENGTH];
+    return [
+      ValidationErrorsLocalized.MIN_LENGTH
+          .replaceAll("{{0}}", minLength.toString())
+    ];
   }
 
   @override
@@ -71,7 +68,8 @@ class MinLength extends BaseRule<String> {
 class NotEmpty extends BaseRule<String> {
   @override
   List<String>? validate(String? value) {
-    if (value == null || value.isEmpty) return [ValidationErrors.NOT_EMPTY];
+    if (value == null || value.isEmpty)
+      return [ValidationErrorsLocalized.NOT_EMPTY];
 
     return null;
   }
@@ -88,8 +86,12 @@ class StringLength extends BaseRule<String> {
 
     final errors = List<String>.empty(growable: true);
 
-    if (value.length < minLength) errors.add(ValidationErrors.MIN_LENGTH);
-    if (value.length > maxLength) errors.add(ValidationErrors.MAX_LENGTH);
+    if (value.length < minLength)
+      errors.add(ValidationErrorsLocalized.MIN_LENGTH
+          .replaceAll("{{0}}", minLength.toString()));
+    if (value.length > maxLength)
+      errors.add(ValidationErrorsLocalized.MAX_LENGTH
+          .replaceAll("{{0}}", maxLength.toString()));
 
     if (errors.isEmpty) return null;
 
@@ -115,7 +117,8 @@ class EmailAddress extends BaseRule<String> {
 
   @override
   List<String>? validate(String value) {
-    if (!regEx.hasMatch(value)) return [ValidationErrors.EMAIL_ADDRESS];
+    if (!regEx.hasMatch(value))
+      return [ValidationErrorsLocalized.EMAIL_ADDRESS];
 
     return null;
   }

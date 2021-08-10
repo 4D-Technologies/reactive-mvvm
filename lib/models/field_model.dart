@@ -22,7 +22,7 @@ class FieldModel<TSource, TValue>
     _internalValue = _getSourceValue(value);
 
     if (value == null && !_nullable) {
-      errors = [ValidationErrors.REQUIRED];
+      errors = [ValidationErrorsLocalized.REQUIRED];
       return;
     }
 
@@ -42,7 +42,7 @@ class FieldModel<TSource, TValue>
     final val = _getValue(value);
 
     if (val == null && !_nullable) {
-      errors = [ValidationErrors.REQUIRED];
+      errors = [ValidationErrorsLocalized.REQUIRED];
       return;
     }
 
@@ -60,7 +60,7 @@ class FieldModel<TSource, TValue>
     final val = _getValue(_internalValue);
 
     if (val == null && !_nullable) {
-      errors = [ValidationErrors.REQUIRED];
+      errors = [ValidationErrorsLocalized.REQUIRED];
     } else {
       _value = val!;
       errors = validate(val);

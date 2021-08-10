@@ -1,3 +1,7 @@
+## [1.0.4] - August 10, 2021
+
+1. Enable localization text for validation prompts
+
 ## [1.0.3] - August 4, 2021
 
 1. Removed IJsonable as not required
