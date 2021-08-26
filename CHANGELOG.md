@@ -1,3 +1,7 @@
+## [1.0.5] - August 26, 2021
+
+1. Fixed issue with email validation
+
 ## [1.0.4] - August 10, 2021
 
 1. Enable localization text for validation prompts

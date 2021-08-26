@@ -1,6 +1,6 @@
 name: reactive_mvvm
 description: Reactive MVVM Library that facilitates complex state scenarios especially form entry styled after bloc using RxDart.
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/Concerti-IO/reactive-mvvm
 publish_to: https://pub.dev/reactive_mvvm
 

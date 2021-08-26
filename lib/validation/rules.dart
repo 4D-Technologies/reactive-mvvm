@@ -116,8 +116,8 @@ class EmailAddress extends BaseRule<String> {
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
 
   @override
-  List<String>? validate(String value) {
-    if (!regEx.hasMatch(value))
+  List<String>? validate(String? value) {
+    if (value != null && !regEx.hasMatch(value))
       return [ValidationErrorsLocalized.EMAIL_ADDRESS];
 
     return null;
