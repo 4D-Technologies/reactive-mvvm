@@ -117,8 +117,21 @@ class EmailAddress extends BaseRule<String> {
 
   @override
   List<String>? validate(String? value) {
-    if (value != null && !regEx.hasMatch(value))
+    if (value == null) return null;
+
+    if (!regEx.hasMatch(value))
       return [ValidationErrorsLocalized.EMAIL_ADDRESS];
+
+    return null;
+  }
+}
+
+class Url extends BaseRule<String> {
+  @override
+  List<String>? validate(String? value) {
+    if (value == null) return null;
+
+    if (Uri.tryParse(value) == null) return [ValidationErrorsLocalized.URL];
 
     return null;
   }

@@ -59,4 +59,5 @@ class ValidationErrorsLocalized {
   static var PASSWORD_COMPLEXITY =
       "Please ensure that the password contains at least 1 upper case, 1 lower case, 1 number and one special character.";
   static var EMAIL_ADDRESS = "Please enter a valid email address";
+  static var URL = "Please enter a valid URL";
 }
