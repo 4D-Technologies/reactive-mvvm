@@ -1,3 +1,7 @@
+## [1.0.8] - September 16th, 2021
+
+1. Add onLoad parameter that takes a future for loading the page. When complete the status should be set to ready or error.
+
 ## [1.0.7] - September 10th, 2021
 
 1. Update to Dart 2.14

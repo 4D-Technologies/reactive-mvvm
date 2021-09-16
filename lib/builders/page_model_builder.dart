@@ -6,8 +6,11 @@ class PageModelBuilder<TModel extends ViewModel>
   final Widget Function(BuildContext context, String? errorMessage)
       errorBuilder;
 
+  final Future<void>? onLoad;
+
   PageModelBuilder(
       {required TModel view,
+      this.onLoad,
       required this.loadingWidget,
       required this.errorBuilder,
       required Widget Function(BuildContext context, TModel model,
@@ -97,12 +100,18 @@ class PageModelBuilderState<TModel extends ViewModel>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.model.status == ViewStatus.error) {
-      return widget.errorBuilder(context, widget.model.errorMessage);
-    } else if (widget.model.status == ViewStatus.loading) {
-      return widget.loadingWidget;
-    }
+    return FutureBuilder<void>(
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done ||
+            widget.model.status == ViewStatus.loading)
+          return widget.loadingWidget;
 
-    return widget.builder(context, widget.model, oldEvent, event);
+        if (widget.model.status == ViewStatus.error)
+          return widget.errorBuilder(context, widget.model.errorMessage);
+
+        return widget.builder(context, widget.model, oldEvent, event);
+      },
+      future: widget.onLoad,
+    );
   }
 }
