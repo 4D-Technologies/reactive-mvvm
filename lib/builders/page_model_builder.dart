@@ -6,7 +6,7 @@ class PageModelBuilder<TModel extends ViewModel>
   final Widget Function(BuildContext context, String? errorMessage)
       errorBuilder;
 
-  final Future<void>? onLoad;
+  final FutureOr<void> Function()? onLoad;
 
   PageModelBuilder(
       {required TModel view,
@@ -35,6 +35,8 @@ class PageModelBuilderState<TModel extends ViewModel>
   late BaseEvent oldEvent;
   StreamSubscription<BaseEvent>? subscription;
 
+  bool loaded = false;
+
   @override
   void initState() {
     super.initState();
@@ -44,7 +46,21 @@ class PageModelBuilderState<TModel extends ViewModel>
       oldEvent = event;
     });
 
-    createSubscription();
+    if (widget.onLoad == null) {
+      loaded = true;
+      createSubscription();
+    } else {
+      WidgetsBinding.instance!.addPostFrameCallback((_) async {
+        await widget.onLoad!();
+
+        setState(
+          () {
+            loaded = true;
+            createSubscription();
+          },
+        );
+      });
+    }
   }
 
   @override
@@ -61,7 +77,7 @@ class PageModelBuilderState<TModel extends ViewModel>
   }
 
   void createSubscription() {
-    var isNew = true;
+    var isNew = widget.onLoad == null;
     if (subscription != null) {
       subscription!.cancel();
       subscription = null;
@@ -100,18 +116,13 @@ class PageModelBuilderState<TModel extends ViewModel>
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<void>(
-      builder: (context, snapshot) {
-        if (snapshot.connectionState != ConnectionState.done ||
-            widget.model.status == ViewStatus.loading)
-          return widget.loadingWidget;
+    if (widget.model.status == ViewStatus.error ||
+        widget.model.status == ViewStatus.submissionError)
+      return widget.errorBuilder(context, widget.model.errorMessage);
 
-        if (widget.model.status == ViewStatus.error)
-          return widget.errorBuilder(context, widget.model.errorMessage);
+    if (!loaded || widget.model.status == ViewStatus.loading)
+      return widget.loadingWidget;
 
-        return widget.builder(context, widget.model, oldEvent, event);
-      },
-      future: widget.onLoad,
-    );
+    return widget.builder(context, widget.model, oldEvent, event);
   }
 }

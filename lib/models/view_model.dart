@@ -44,6 +44,91 @@ abstract class ViewModel extends WidgetModel<BaseEvent> {
   String? get errorMessage => lastEvent.errorMessage;
 
   ViewStatus get status => lastEvent.status;
+
+  @protected
+  FutureOr<void> loadView(
+    FutureOr<void> Function() load, {
+    String? readyReason,
+    Iterable<IObservable<BaseEvent>>? readyChanges,
+    Iterable<IObservable<BaseEvent>>? errorChanges,
+  }) async {
+    try {
+      await load();
+
+      ready(changes: readyChanges, reason: readyReason);
+    } on Exception catch (e) {
+      error(e, changes: errorChanges);
+    }
+  }
+
+  FutureOr<bool> submit(
+    FutureOr<bool> Function() submission, {
+    String? submissionReason,
+    Iterable<IObservable<BaseEvent>>? submissionChanges,
+    String? successReason,
+    Iterable<IObservable<BaseEvent>>? successChanges,
+    Iterable<IObservable<BaseEvent>>? errorChanges,
+  }) async {
+    try {
+      submitting(reason: submissionReason, changes: submissionChanges);
+
+      final result = await submission();
+
+      submissionSuccess(reason: successReason, changes: successChanges);
+
+      return result;
+    } on Exception catch (e) {
+      submissionError(e, changes: errorChanges);
+      return false;
+    }
+  }
+
+  void ready({
+    String? reason,
+    Iterable<IObservable<BaseEvent>>? changes,
+  }) =>
+      emit(
+        ViewStatus.ready,
+        reason: reason,
+        changes: changes,
+      );
+
+  void error(
+    Exception exception, {
+    Iterable<IObservable<BaseEvent>>? changes,
+  }) =>
+      emit(
+        ViewStatus.error,
+        exception: exception,
+        changes: changes,
+      );
+
+  void submitting({
+    String? reason,
+    Iterable<IObservable<BaseEvent>>? changes,
+  }) =>
+      emit(
+        ViewStatus.submittingInProgress,
+        reason: reason,
+        changes: changes,
+      );
+
+  void submissionError(
+    Exception exception, {
+    Iterable<IObservable<BaseEvent>>? changes,
+  }) =>
+      emit(ViewStatus.submissionError, exception: exception, changes: changes);
+
+  void submissionSuccess({
+    String? reason,
+    Iterable<IObservable<BaseEvent>>? changes,
+  }) =>
+      emit(
+        ViewStatus.submissionSuccess,
+        reason: reason,
+        changes: changes,
+      );
+
   void emit(ViewStatus value,
       {String? errorMessage,
       Exception? exception,

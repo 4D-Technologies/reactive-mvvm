@@ -1,3 +1,15 @@
+## [1.0.15] - October 1st, 2021
+
+1. Update onLoad to be FutureOr<void> instead of just Future
+
+## [1.0.14] - September 27th, 2021
+
+1. Add short hande ready, error etc. methods on ViewModel for emitting.
+
+## [1.0.12] - September 22nd, 2021
+
+1. Fix issue with onLoad that would cause loading of final page when it wasn't finished loading.
+
 ## [1.0.8] - September 16th, 2021
 
 1. Add onLoad parameter that takes a future for loading the page. When complete the status should be set to ready or error.
