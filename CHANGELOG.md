@@ -1,6 +1,11 @@
-## [1.0.15] - October 1st, 2021
+## [1.0.17] - October 4th, 2021
+
+1. Make save on MvvmForm FutureOr<bool> instead of just Future<bool>
+
+## [1.0.16] - October 1st, 2021
 
 1. Update onLoad to be FutureOr<void> instead of just Future
+2. Add onLoad to ViewModelBuilder.
 
 ## [1.0.14] - September 27th, 2021
 

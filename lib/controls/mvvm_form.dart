@@ -1,7 +1,7 @@
 part of mvvm;
 
 class MvvmForm extends Form {
-  final Future<bool> Function() save;
+  final FutureOr<bool> Function() save;
   MvvmForm(
       {GlobalKey<MvvmFormState>? key,
       required Widget child,
@@ -21,13 +21,13 @@ class MvvmForm extends Form {
 
 class MvvmFormState extends FormState {
   @override
-  Future<bool> save() {
+  Future<bool> save() async {
     if (!validate()) return Future.value(false);
 
     super.save();
 
     final form = this.widget as MvvmForm;
 
-    return form.save();
+    return await form.save();
   }
 }
