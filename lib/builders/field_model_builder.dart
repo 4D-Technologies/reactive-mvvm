@@ -60,9 +60,9 @@ class FieldModelBuilderState<TSource, TDestination>
             }
             break;
         }
-      } else if (newEvent is BaseFieldEvent) {
+      } else  {
         if (!widget.buildWhen!(widget.model, oldEvent, newEvent)) return;
-      } else {}
+      }
 
       setState(() {
         oldEvent = event;

@@ -1,3 +1,9 @@
+## [1.0.21] - May 18th, 2022
+
+1. Update to Flutter 3
+2. Fix issue with warnings.
+3. Update home page information.
+
 ## [1.0.17] - October 4th, 2021
 
 1. Make save on MvvmForm FutureOr<bool> instead of just Future<bool>

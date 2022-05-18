@@ -50,7 +50,7 @@ class PageModelBuilderState<TModel extends ViewModel>
       loaded = true;
       createSubscription();
     } else {
-      WidgetsBinding.instance!.addPostFrameCallback((_) async {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
         await widget.onLoad!();
 
         setState(

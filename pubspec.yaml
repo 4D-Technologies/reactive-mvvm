@@ -1,21 +1,21 @@
 name: reactive_mvvm
 description: Reactive MVVM Library that facilitates complex state scenarios especially form entry styled after bloc using RxDart.
-version: 1.0.17
-homepage: https://github.com/Concerti-IO/reactive-mvvm
-repository: https://github.com/Concerti-IO/reactive-mvvm
+version: 1.0.21
+homepage: https://github.com/4D-Technologies/reactive-mvvm
+repository: https://github.com/4D-Technologies/reactive-mvvm
 
 environment:
-  sdk: ">=2.14.0 <3.0.0"
-  flutter: ">=2.2.0"
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  rxdart: ^0.27.2
+  rxdart: ^0.27.3
 
 dev_dependencies:
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
 
